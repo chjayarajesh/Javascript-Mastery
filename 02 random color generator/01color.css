@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+header{
+    background-color: rgb(180, 175, 175);
+}
+h1{
+    text-align: center;
+    font-size: 45px;
+}
+main{
+    padding: 10px;
+}
+section > .display{
+    border: solid black 2px;
+    border-radius: 15px;
+    width: 300px;
+    height: 300px;
+    margin: 10px auto;
+}
+.currhex{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    height: 100px;
+}
+.msg{
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+}
+.generated{
+    border: solid;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 10px auto;
+    padding: 10px;
+    height: 350px;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    width: 70%;
+}
+.set{
+    border: solid;
+    padding: 15px 10px;
+    height: 100px;
+}
+.set button{
+    width: 200px;
+    height: 40px;
+}
+.set p{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+}
+.btns{
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+}
+.btns button{
+    height: 50px;
+    width: 150px;
+    font-size: 25px;
+    border: solid black;
+    background-color: black;
+    color: white;
+    margin: 10px 20px;
+    border-radius: 10px;
+    transition: color .3s ease, background-color .3s ease;
+}
+.btns button:hover{
+    color: black;
+    background-color: white;
+}
+.previous{
+    visibility: hidden;
+}
+.next{
+    visibility: hidden;
+}

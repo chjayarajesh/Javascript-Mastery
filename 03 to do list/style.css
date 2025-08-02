@@ -1,0 +1,254 @@
+body{
+    margin: 0px;
+    display: grid;
+    justify-content: center;
+    font-family: "Roboto", sans-serif;
+    background-color: rgb(211, 234, 64);
+}
+*{
+    margin: 0px;
+    padding: 0px;
+}
+header{
+    text-align: center;
+    margin-bottom: 80px;
+    margin-top: 10px;
+}
+main{
+    background-color: rgb(206, 211, 211);
+    width: 500px;
+    height: 70vh;
+    display: grid;
+    grid-template-rows: 1fr 9fr;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0);
+    border-radius: 10px;
+}
+.change{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.change button{
+    width: 150px;
+    height: 40px;
+    border: solid;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    transition: all .3s ease;
+    border-radius: 10px;
+}
+.change button:hover{
+    background-color: rgb(243, 138, 26);
+    color: white;
+    border: solid black;
+    box-shadow: 0px 0px 0px white;
+}
+.change .taskpage{
+    box-shadow: 0px 4px 5px rgb(255, 132, 0);
+}
+.change button:active{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: solid black;
+}
+.display{
+    padding: 10px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.userip{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.userip input{
+    width: 100%;
+    font-size: 20px;
+    margin: 5px;
+    height: 20px;
+    border: solid;
+    font-weight: 600;
+    padding: 5px;
+    border-radius: 10px;
+}
+.userip button{
+    margin: 5px;
+    width: 70px;
+    font-weight: 700;
+    height: 35px;
+    border: solid;
+    cursor: pointer;
+    transition: all .3s ease;
+    border-radius: 10px;
+}
+.userip button:hover{
+    background-color: rgb(243, 138, 26);
+    color: white;
+    border: solid black;
+}
+.userip button:active{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: solid black;
+}
+.display .tasklist{
+    padding: 5px;
+    display: grid;
+
+}
+.display > .tasklist > .task{
+    border: solid;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 10px;
+    background-color: rgb(242, 161, 79);
+}
+.task  > .edit-text{
+    width: 60%;
+    display: none;
+}
+.task  > .edit-text > input{
+    width: 100%;
+    height: 30px;
+    font-size: 25px;
+    background-color: rgb(242, 161, 79);
+}
+.task > .taskname{
+    width: 60%;
+    padding: 8px;
+    font-size: 25px;
+    font-weight: 500;
+}
+.task > .actions{
+    display: flex;
+    width: 200px;
+    justify-content: space-evenly;
+    padding: 3px;
+}
+.actions button{
+    height: 40px;
+    width: 40px;
+    font-weight: 700;
+    border: solid;
+    cursor: pointer;
+    transition: all .3s ease;
+    border-radius: 10px;
+}
+.actions> .edit > button >  span{
+    color: blue;
+    font-size: 30px;
+}
+.actions> .remove > button >  span{
+    color: rgb(255, 0, 0);
+    font-size: 30px;
+}
+.actions> .over > button >  span{
+    color: rgb(0, 255, 0);
+    font-size: 30px;
+}
+.actions> .ok > button >  span{
+    color: rgb(72, 241, 72);
+    font-size: 30px;
+}
+
+.actions button:hover{
+    background-color: black;
+    border: solid black;
+}
+.actions button:active{
+    background-color: rgb(255, 255, 255);
+    border: solid black;
+}
+.historylist{
+    margin-bottom: 20px;
+    padding: 5px;
+    overflow-y: auto;
+    display: none;
+}
+.historylist .history{
+    border: solid;
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: rgb(242, 161, 79);
+}
+.history p{
+    font-size: 20px;
+    font-weight: 600;
+}
+.popup{
+    background-color: red;
+    border: none;
+    color: white;
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px 10px 5px 10px;
+    animation: slide 0.5s ease-in;
+    font-weight: 600;
+    display: none;
+}
+
+@keyframes slide {
+    0% { 
+        opacity: 0;
+        transform: translate(-150%, -50%); 
+    }
+    100% {
+        opacity: 1; 
+        transform: translate(-50%, -50%); 
+    }
+}
+footer{
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 50px;
+    align-content: center;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+}
+
+@media(max-width : 400px){
+    main{
+        width: 320px;
+        height: 60vh;
+    }
+    .change button{
+        width: 100px;
+    }
+    .task{
+        width: 280px;
+    }
+    .task > .taskname{
+        width: 40%;
+        font-size: 20px;
+    }
+    .actions span{
+        font-size: 2px;
+    }
+    .actions button{
+        height: 35px;
+        width: 35px;
+    }
+    .task  > .edit-text{
+        width: 40%;
+    }
+    .task  > .edit-text > input{
+        font-size: 20px;
+    }
+}

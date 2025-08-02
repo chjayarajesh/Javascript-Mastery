@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password generator</title>
+</head>
+<body>
+    <section>
+        <h1>Password Generator</h1>
+        <p class="result">Password</p>
+            <div class="options">
+                <div>
+                    <label for="length">Length</label>
+                    <input type="number" id="length" required>
+                </div>
+                <div>
+                    <label for="upper">Include uppercase: </label>
+                    <input type="checkbox" name="uppercase" id="upper">
+                </div>
+                <div>
+                    <label for="lower">Include Lowercase: </label>
+                    <input type="checkbox" name="lowercase" id="lower">
+                </div>
+                <div>
+                    <label for="upper">Include numbers: </label>
+                    <input type="checkbox"  name="numbers" id="num">
+                </div>
+                <div>
+                    <label for="symbol">Include symbols: </label>
+                    <input type="checkbox" name="symbol" id="symbol">
+                </div>
+                <button class="btn">Generate</button>
+            </div>
+        
+    </section>
+</body>
+<style>
+    *{
+        font-family: sans-serif;
+
+    }
+    section{
+        margin: 200px auto;
+        border: solid 1px;
+        padding: 20px;
+        border-radius: 15px;
+        width: fit-content;
+    }
+    h1,p{
+        text-align: center;
+    }
+    input{
+        width: 15px;
+        height: 15px;
+    }
+    input[type="number"]{
+        width: 50px;
+    }
+    .options > div{
+        display: flex;
+        justify-content: space-between;
+    }
+    .options{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+    
+</style>
+<script>
+    const result = document.querySelector(".result");
+    const Length = document.querySelector("#length");
+    const Upper = document.querySelector("#upper");
+    const Lower = document.querySelector("#lower");
+    const Num = document.querySelector("#num");
+    const Symbol = document.querySelector("#symbol");
+    const btn = document.querySelector(".btn");
+    let count = 0;
+    const up = "QWERTYUIOPASDFGHJKLZXCVBNM";
+    const low = "qwertyuiopasdfghjklmznxbcv";
+    const num = "1234567890";
+    const sym = "!@#$%^&*()_+";
+    const generate = (size,inc)=>{
+        let password = "";
+        for(let i = 0; i < size; i += inc){
+            if(Upper.checked) password += up[Math.floor(Math.random()*26)];
+            if(Lower.checked) password += low[Math.floor(Math.random()*26)];
+            if(Num.checked) password += num[Math.floor(Math.random()*26)];
+            if(Symbol.checked) password += sym[Math.floor(Math.random()*26)];
+        }
+        while(password.length < size){
+            password += up[Math.floor(Math.random()*26)];
+        }
+        return password;
+        
+    }
+    generate();
+    btn.addEventListener("click",()=>{
+        if(Upper.checked) count += 1;
+        if(Lower.checked) count += 1;
+        if(Num.checked) count += 1;
+        if(Symbol.checked) count += 1;
+        if(count > 0){
+            result.innerText = generate(Number(Length.value),count);
+        }else{
+            let size_r = Math.floor(Math.random()*10);
+            count = Math.floor(Math.random()*4);
+            result.innerText = generate(Number(Length.value),count);
+        }
+        
+    })
+</script>
+</html>
