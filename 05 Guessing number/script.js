@@ -7,10 +7,11 @@ let computer = 0;
 let generate = false;
 let chances = 0;
 let user;
-let timeSec = 20;
+let timeSec = 60;
+let Interval;
 //to start the time when the game starts
 const gameStart = ()=>{
-    const Interval = setInterval(()=>{
+     Interval = setInterval(()=>{
         timer.querySelector("span").innerText = timeSec;
         timeSec -= 1;
         if(timeSec < 0){
@@ -19,7 +20,7 @@ const gameStart = ()=>{
             result.style.color = "red";
             generate = false;
             button.innerText = "Replay";
-            timeSec = 20;
+            timeSec = 60;
         }
     },1000);
 }
@@ -54,6 +55,9 @@ const game = ()=>{
                 result.innerText = "WoW! You guessed Number";
                 generate = false;
                 button.innerText = "Replay";
+                clearInterval(Interval);
+                timeSec = 60;
+                timer.querySelector("span").innerText = timeSec;
             }else {
                 if(user > computer){
                     console.log("greater")

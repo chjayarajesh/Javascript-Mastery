@@ -48,3 +48,9 @@ section > .playbtn{
     display: flex;
     justify-content: center;
 }
+@media(max-width : 600px){
+    section img{
+        height: 150px;
+        width: 150px;
+    }
+}
